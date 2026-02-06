@@ -13,22 +13,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class UserServiceTest {
-    CheckWeatherRequest checkWeatherRequest;
+    String checkWeatherRequest;
     @Autowired
     UserService  userService;
 
     @Test
     @SneakyThrows
     void testThatUserCanSeeWeatherUpdate(){
-        checkWeatherRequest = new CheckWeatherRequest();
-        checkWeatherRequest.setLocation("Lagos");
+        checkWeatherRequest=("Lagos");
             assertEquals(7,userService.checkWeather(checkWeatherRequest).size());
     }
 
     @Test
     void testThatWrongAddressThrowsException(){
-        checkWeatherRequest = new CheckWeatherRequest();
-        checkWeatherRequest.setLocation("ghsyukhs");
+        checkWeatherRequest=("ghsyukhs");
         assertThrows(Exception.class,()->userService.checkWeather(checkWeatherRequest));
     }
 

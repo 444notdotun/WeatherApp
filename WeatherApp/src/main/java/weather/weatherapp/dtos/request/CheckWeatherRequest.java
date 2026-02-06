@@ -8,6 +8,6 @@ import lombok.Data;
 public class CheckWeatherRequest {
 @NotNull(message = "can not be null")
 @NotBlank(message = "can not be blank")
-    private String Location;
+    private String location;
 
 }

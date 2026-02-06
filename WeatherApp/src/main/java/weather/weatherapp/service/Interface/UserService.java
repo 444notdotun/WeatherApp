@@ -7,5 +7,5 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public interface UserService {
-    List<CheckWeatherResponse> checkWeather(CheckWeatherRequest checkWeatherRequest) throws UnsupportedEncodingException;
+    List<CheckWeatherResponse> checkWeather(String checkWeatherRequest) throws UnsupportedEncodingException;
 }

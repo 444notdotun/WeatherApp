@@ -17,11 +17,11 @@ import java.net.http.HttpResponse;
 @Service
 public class LocationApi {
     @SneakyThrows
-    public Location getLatitudeAndLongitude(CheckWeatherRequest checkWeatherRequest){
+    public Location getLatitudeAndLongitude(String checkWeatherRequest){
         String getGeoCodingUrl =   "https://nominatim.openstreetmap.org/search?q="+
-                URLEncoder.encode(checkWeatherRequest.getLocation(),"UTF-8")+"&format=json&limit=1";
+                URLEncoder.encode(checkWeatherRequest,"UTF-8")+"&format=json&limit=1";
         HttpClient client = HttpClient.newHttpClient();
-        IO.println("location: "+checkWeatherRequest.getLocation());
+        IO.println("location: "+checkWeatherRequest);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(getGeoCodingUrl))
                 .header("User-Agent", "JavaWeatherApp/1.0")

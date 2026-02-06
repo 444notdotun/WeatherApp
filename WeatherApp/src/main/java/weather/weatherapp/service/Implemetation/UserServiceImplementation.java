@@ -26,7 +26,7 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     LocationApi locationApi;
     @Override
-    public List<CheckWeatherResponse> checkWeather(CheckWeatherRequest checkWeatherRequest) {
+    public List<CheckWeatherResponse> checkWeather(String checkWeatherRequest) {
         Location resultOfLocationApi= locationApi.getLatitudeAndLongitude(checkWeatherRequest);
         JsonNode weatherReport= weatherApi.getWeather(resultOfLocationApi);
         validateWeatherReport(weatherReport);
