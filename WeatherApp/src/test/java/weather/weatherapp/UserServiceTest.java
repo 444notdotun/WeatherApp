@@ -9,6 +9,7 @@ import weather.weatherapp.service.Interface.UserService;
 import java.io.UnsupportedEncodingException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class UserServiceTest {
@@ -22,6 +23,13 @@ public class UserServiceTest {
         checkWeatherRequest = new CheckWeatherRequest();
         checkWeatherRequest.setLocation("Lagos");
             assertEquals(7,userService.checkWeather(checkWeatherRequest).size());
+    }
+
+    @Test
+    void testThatWrongAddressThrowsException(){
+        checkWeatherRequest = new CheckWeatherRequest();
+        checkWeatherRequest.setLocation("ghsyukhs");
+        assertThrows(Exception.class,()->userService.checkWeather(checkWeatherRequest));
     }
 
 

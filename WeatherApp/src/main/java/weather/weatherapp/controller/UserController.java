@@ -24,6 +24,7 @@ public class UserController {
     public ResponseEntity<?> CheckWeather(@Valid @RequestBody CheckWeatherRequest checkWeatherRequest) {
         try{
             List<CheckWeatherResponse> responses = userService.checkWeather(checkWeatherRequest);
+            IO.println(responses);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(responses);
         }
         catch (Exception e){
